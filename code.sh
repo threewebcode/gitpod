@@ -4,6 +4,7 @@
 repositories=(
   "https://github.com/bitcoin/bitcoin.git"
   "https://github.com/prysmaticlabs/prysm.git"
+  "https://github.com/ethereum/solidity.git"
 )
 
 # Clone or update repositories
