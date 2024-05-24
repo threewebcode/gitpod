@@ -7,6 +7,7 @@ repositories=(
   "https://github.com/ethereum/solidity.git"
   "https://github.com/succinctlabs/sp1.git"
   "https://github.com/risc0/risc0.git"
+  "https://github.com/rust-lang/rust.git"
 )
 
 # Clone or update repositories
