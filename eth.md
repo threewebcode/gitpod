@@ -1,1 +1,1 @@
-The justified checkpoint is the starting point of fork choince algorithm. The finalized checkpoint is the highest finalized checkpoint. The slot and epoch are the time unit.
+The justified checkpoint is the starting point of fork choince algorithm. The finalized checkpoint is the highest finalized checkpoint. The slot and epoch are the time unit. The data may be in the local machine or remote machine. The data in the remote machine is feteched by the network. If the data is located in the local machine, it may be at the memory or disk. 
