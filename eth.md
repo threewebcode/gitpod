@@ -2,4 +2,6 @@ The justified checkpoint is the starting point of fork choince algorithm. The fi
 
 When is it necessary to divide the read and write object separately? The interfaces can be composed to create more dynamic and powerful interfaces. The grammar is elegant in the golang language. The state covers lots of domain data. That is to say, many parts ofd datas are recognized as the important data in the state. The justified checkpoint and finalized checkpoint are a peiece of data fragement in the state. The number of validators and attestations are recorded into the state.
 
-There is a tree when buddest perfom mediation and gain enlightment. There is a tree when Newton think deeply and find the theory of gravity. There is a tree when blockchain needs to keep world state and move forward.
+There is a tree when buddest perfom mediation and gain enlightment. There is a tree when Newton think deeply and find the theory of gravity. There is a tree when blockchain needs to keep world state and move forward. 
+
+The node starts the client which launches blockchain, state, p2p service, synchronization service and API service. It also has the execution service which interacts with execution layer.
