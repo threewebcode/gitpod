@@ -2,13 +2,14 @@
 
 # Array of repository URLs
 repositories=(
-  "https://github.com/bitcoin/bitcoin.git"
-  "https://github.com/prysmaticlabs/prysm.git"
-  "https://github.com/ethereum/solidity.git"
-  "https://github.com/succinctlabs/sp1.git"
-  "https://github.com/risc0/risc0.git"
-  "https://github.com/rust-lang/rust.git"
-  "https://github.com/ethereum/go-ethereum.git"
+#  "https://github.com/bitcoin/bitcoin.git"
+#  "https://github.com/prysmaticlabs/prysm.git"
+#  "https://github.com/ethereum/solidity.git"
+#  "https://github.com/succinctlabs/sp1.git"
+#  "https://github.com/risc0/risc0.git"
+#  "https://github.com/rust-lang/rust.git"
+#  "https://github.com/ethereum/go-ethereum.git"
+  "https://github.com/sigp/lighthouse.git"
 )
 
 # Clone or update repositories
