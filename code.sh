@@ -12,6 +12,7 @@ repositories=(
   "https://github.com/sigp/lighthouse.git"
   "https://github.com/Consensys/teku.git"
   "https://github.com/hyperledger/besu.git"
+  "https://github.com/ethereum-optimism/optimism.git"
 )
 
 # Clone or update repositories
