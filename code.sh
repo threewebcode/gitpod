@@ -10,6 +10,7 @@ repositories=(
 #  "https://github.com/rust-lang/rust.git"
 #  "https://github.com/ethereum/go-ethereum.git"
   "https://github.com/sigp/lighthouse.git"
+  "https://github.com/Consensys/teku.git"
 )
 
 # Clone or update repositories
