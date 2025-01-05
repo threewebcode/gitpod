@@ -24,4 +24,4 @@ if __name__ == "__main__":
     print("Trending Repositories:")
     for repo in trending_repos:
         print(repo)
-#    clone_repositories(trending_repos)
+    clone_repositories(trending_repos)
