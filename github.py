@@ -16,17 +16,13 @@ def fetch_trending_repositories():
     return repos
 
 def create_directory():
-    # Get the current date
     now = datetime.now()
-    # Format the directory name as YYYY-MM-DD
     dir_name = now.strftime("%Y-%m-%d")
     
-    # Delete the directory if it exists
     if os.path.exists(dir_name):
         shutil.rmtree(dir_name)
         print(f"Directory '{dir_name}' deleted.")
     
-    # Create the directory
     os.makedirs(dir_name)
     print(f"Directory '{dir_name}' created.")
     
@@ -35,10 +31,9 @@ def create_directory():
 def clone_repositories(repos, dir_name):
     for repo in repos:
         clone_url = f"https://github.com/{repo}.git"
-        repo_dir = os.path.join(dir_name, repo.split('/')[-1])  # Use the repo name as subdirectory
+        repo_dir = os.path.join(dir_name, repo.split('/')[-1]) 
         print(f"Cloning {repo} into {repo_dir}...")
         
-        # Clone into a subdirectory named after the repository
         os.system(f"git clone {clone_url} {repo_dir}")
 
 if __name__ == "__main__":
@@ -47,6 +42,5 @@ if __name__ == "__main__":
     for repo in trending_repos:
         print(repo)
     
-    # Create directory and clone repositories into it
     directory_name = create_directory()
     clone_repositories(trending_repos, directory_name)
