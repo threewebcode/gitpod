@@ -2,15 +2,16 @@ import click
 import requests
 
 @click.command()
-def get_networks():
-    # Base URL for the API
+def get_network_ids():
+    """
+    Fetch and print network IDs from GeckoTerminal API.
+    """
+    # Base URL and endpoint
     base_endpoint = "https://api.geckoterminal.com/api/v2"
-    
-    # Request path
-    path = "networks"
+    request_path = "networks"
     
     # Construct the full URL
-    url = f"{base_endpoint}/{path}"
+    url = f"{base_endpoint}/{request_path}"
     
     # Headers for the request
     headers = {
@@ -21,16 +22,23 @@ def get_networks():
         # Make the GET request
         response = requests.get(url, headers=headers)
         
-        # Check if the request was successful
+        # Raise an exception for bad status codes
         response.raise_for_status()
         
-        # Parse and print the JSON response
-        data = response.json()
-        click.echo(click.style(f"API Response:", fg='green'))
-        click.echo(click.style(data, fg='blue'))
+        # Parse the JSON response
+        data = response.json()['data']
+        
+        # Ensure 'data' is a list
+        if isinstance(data, list):
+            # Extract and print the 'id' from each dictionary in the list
+            for network in data:
+                if 'id' in network:
+                    click.echo(network['id'])
+        else:
+            click.echo("Unexpected response format: data is not a list.", err=True)
     
-    except requests.exceptions.RequestException as e:
-        click.echo(click.style(f"An error occurred: {e}", fg='red'))
+    except requests.RequestException as e:
+        click.echo(f"An error occurred: {e}", err=True)
 
 if __name__ == '__main__':
-    get_networks()
+    get_network_ids()
