@@ -34,7 +34,7 @@ def clone_repositories(repos, dir_name):
         repo_dir = os.path.join(dir_name, repo.split('/')[-1]) 
         print(f"Cloning {repo} into {repo_dir}...")
         
-        os.system(f"git clone {clone_url} {repo_dir}")
+        os.system(f"git clone --depth 1 {clone_url} {repo_dir}")
 
 if __name__ == "__main__":
     trending_repos = fetch_trending_repositories()
