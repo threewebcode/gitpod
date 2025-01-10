@@ -24,3 +24,31 @@ function my_span() {
         console.log('No spans with more than 30 words found.');
     }
 }
+
+function scroll_div(distance, times) {
+    return new Promise((resolve) => {
+        const scrollElement = document.querySelector('div[class^="index_scrollWindow"]');
+        if (!scrollElement) {
+            console.error("Element not found");
+            resolve();
+            return;
+        }
+        let iterations = 0;
+        function scrollOnce() {
+            scrollElement.scrollTop += distance;
+            const scrollEvent = new Event('scroll');
+            scrollElement.dispatchEvent(scrollEvent);
+            iterations++;
+            if (iterations < times) {
+                setTimeout(scrollOnce, 500);
+            } else {
+                resolve();
+            }
+        }
+        scrollOnce();
+    });
+}
+
+async function my_scroll() {
+    await scroll_div(10000, 10);
+}
