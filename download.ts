@@ -18,7 +18,7 @@ function my_span() {
   }
   spans.forEach(span => {
     if (wordCount(span.textContent) > 30) {
-      message += span.textContent + '\n';
+      message += span.textContent + '\n\n';
     }
   });
   if (message.trim() !== '') {
@@ -58,5 +58,5 @@ function scroll_div(distance, times) {
 }
 
 async function my_scroll() {
-    await scroll_div(10000, 10);
+    await scroll_div(10000, 20);
 }
