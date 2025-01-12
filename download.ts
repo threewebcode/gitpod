@@ -13,17 +13,14 @@ function my_span() {
   console.clear();
   var spans = document.querySelectorAll('span');
   var message = '';
-
   function wordCount(str) {
     return str.trim().split(/\s+/).length;
   }
-
   spans.forEach(span => {
     if (wordCount(span.textContent) > 30) {
       message += span.textContent + '\n';
     }
   });
-
   if (message.trim() !== '') {
     var blob = new Blob([message], { type: 'text/plain' });
     var timestamp = new Date().toISOString().replace(/[^0-9]/g, '');
@@ -51,7 +48,7 @@ function scroll_div(distance, times) {
             scrollElement.dispatchEvent(scrollEvent);
             iterations++;
             if (iterations < times) {
-                setTimeout(scrollOnce, 500);
+                setTimeout(scrollOnce, 200);
             } else {
                 resolve();
             }
