@@ -48,7 +48,7 @@ function scroll_div(distance, times) {
             scrollElement.dispatchEvent(scrollEvent);
             iterations++;
             if (iterations < times) {
-                setTimeout(scrollOnce, 200);
+                setTimeout(scrollOnce, 400);
             } else {
                 resolve();
             }
@@ -58,5 +58,5 @@ function scroll_div(distance, times) {
 }
 
 async function my_scroll() {
-    await scroll_div(10000, 20);
+    await scroll_div(4800, 15);
 }
