@@ -50,5 +50,5 @@ function scroll_div(distance, times) {
 }
 
 async function my_scroll() {
-    await scroll_div(4800, 20);
+    await scroll_div(1024, 20);
 }
