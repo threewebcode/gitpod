@@ -1,186 +1,118 @@
-from moviepy import (
-    VideoClip,
-    ColorClip,
-    TextClip,
-    CompositeVideoClip,
-    vfx
-)
-import numpy as np
-from pathlib import Path
-import logging
+import os
+from moviepy.editor import ColorClip, TextClip, CompositeVideoClip, concatenate_videoclips
+from moviepy.audio.io.AudioFileClip import AudioFileClip
+from elevenlabs import ElevenLabs
 
-logging.basicConfig(level=logging.INFO)
-logger = logging.getLogger(__name__)
+# Set your API key
+API_KEY = os.getenv('ELEVENLABS_API_KEY')
+if not API_KEY:
+    raise ValueError("ElevenLabs API key not found. Set ELEVENLABS_API_KEY in your environment.")
 
-def create_demo_video(output_path: str = "output.mp4") -> None:
-    """
-    Create a demo video using modern MoviePy 2.1.x features
-    """
-    clips = []
+client = ElevenLabs(api_key=API_KEY)
+
+def read_text_file(file_path="text.txt"):
     try:
-        # Create background using ColorClip
-        background = ColorClip(
-            size=(1280, 720),
-            color=(64, 64, 164),  # Navy blue
-            duration=5
-        )
-        clips.append(background)
+        with open(file_path, 'r', encoding='utf-8') as file:
+            content = file.read()
+        sections = content.split('\n\n')
+        return [section.strip() for section in sections if section.strip()]
+    except IOError:
+        print(f"Error: Could not read file {file_path}")
+        return []
 
-        # Create text using modern TextClip
-        title_text = TextClip(
-            text="MoviePy Demo",
-            size=(0, 0),  # Auto-size
-            color='white',
-            font='/usr/share/fonts/truetype/dejavu/DejaVuSerif.ttf',
-            font_size=70,
-            stroke_color='black',
-            stroke_width=2,
-            method='label',
-            text_align='center',
-            bg_color=None,
-            transparent=True
-        )
+def generate_audio(text, output_file="generated_audio.mp3"):
+    if os.path.exists(output_file):
+        print(f"Audio file {output_file} already exists. Skipping API call.")
+        return output_file
 
-        # Apply modern effects chain
-        title_text = (title_text
-            .with_position('center')
-            .with_duration(5)
-            .with_effects([
-                vfx.FadeIn(1),
-                vfx.FadeOut(1)
-            ]))
-        clips.append(title_text)
-
-        # Create final composition
-        final = CompositeVideoClip(
-            clips,
-            size=(1280, 720)
-        )
-
-        # Write using modern parameters
-        final.write_videofile(
-            output_path,
-            fps=30,
-            codec='libx264',
-            audio=False,
-            preset='medium',
-            threads=4,
-            logger='bar',
-            ffmpeg_params=[
-                "-crf", "18",
-                "-pix_fmt", "yuv420p",
-                "-profile:v", "high"
-            ]
-        )
-
-    except Exception as e:
-        logger.error(f"Error creating video: {str(e)}")
-        raise
-
-    finally:
-        # Modern cleanup
-        for clip in clips:
-            clip.close()
-
-def create_advanced_video(output_path: str = "advanced_output.mp4") -> None:
-    """
-    Create an advanced video using modern MoviePy 2.1.x features
-    """
-    clips = []
     try:
-        # Create background
-        background = ColorClip(
-            size=(1920, 1080),
-            color=(20, 40, 60),
-            duration=10
+        # You can customize these parameters based on your needs
+        audio = client.text_to_speech.convert(
+            voice_id="JBFqnCBsd6RMkjVDRZzb",  # Example voice ID, replace with your preferred voice
+            output_format="mp3_44100_128",  # MP3 format at 44.1kHz with 128kbps bitrate
+            text=text,
+            model_id="eleven_multilingual_v2"  # Example model ID, check ElevenLabs docs for options
         )
-        clips.append(background)
-
-        # First text clip
-        text1 = TextClip(
-            text=f"Created by wonderfan",
-            size=(0, 0),
-            color='white',
-            font='/usr/share/fonts/truetype/dejavu/DejaVuSerif.ttf',
-            font_size=70,
-            stroke_color='blue',
-            stroke_width=2,
-            method='label',
-            text_align='center',
-            bg_color=None,
-            transparent=True
-        )
-
-        # Apply modern effects chain
-        text1 = (text1
-            .with_position('center')
-            .with_duration(5)
-            .with_effects([
-                vfx.FadeIn(1),
-                vfx.FadeOut(1),
-                vfx.Rotate(lambda t: t*20)
-            ]))
-        clips.append(text1)
-
-        # Second text clip
-        current_time = "2025-02-14 03:42:31"
-        text2 = TextClip(
-            text=f"Generated at {current_time}",
-            size=(0, 0),
-            color='yellow',
-            font='/usr/share/fonts/truetype/dejavu/DejaVuSerif.ttf',
-            font_size=40,
-            stroke_color='black',
-            stroke_width=1,
-            method='label',
-            text_align='center',
-            bg_color=None,
-            transparent=True
-        )
-
-        # Apply modern effects
-        text2 = (text2
-            .with_position(('center', 400))
-            .with_start(5)
-            .with_duration(5)
-            .with_effects([
-                vfx.FadeIn(1),
-                vfx.FadeOut(1)
-            ]))
-        clips.append(text2)
-
-        # Create final composition
-        final = CompositeVideoClip(
-            clips,
-            size=(1920, 1080)
-        )
-
-        # Write with modern settings
-        final.write_videofile(
-            output_path,
-            fps=30,
-            codec='libx264',
-            audio=False,
-            preset='medium',
-            threads=4,
-            logger='bar',
-            ffmpeg_params=[
-                "-crf", "18",
-                "-pix_fmt", "yuv420p",
-                "-profile:v", "high",
-                "-tune", "film"
-            ]
-        )
-
+        
+        # Convert generator to bytes
+        audio_bytes = b''.join(audio)
+        
+        with open(output_file, 'wb') as f:
+            f.write(audio_bytes)
+        print(f"Audio file generated: {output_file}")
+        return output_file
     except Exception as e:
-        logger.error(f"Error creating advanced video: {str(e)}")
-        raise
+        print(f"Error generating audio via ElevenLabs API: {e}")
+        return None
 
-    finally:
-        # Modern cleanup
-        for clip in clips:
-            clip.close()
+def generate_video_clips(sections):
+    clips = []
+    for i, section in enumerate(sections, 1):
+        try:
+            # Create a solid color background
+            background = ColorClip((640, 480), color=(255, 255, 255)).set_duration(2)  # White background, 2 seconds duration
+
+            # Add text over the background
+            text_clip = TextClip(section, fontsize=24, color='black', font='Arial-Bold', size=(640, 480))
+            text_clip = text_clip.set_position(('center', 'center'))
+
+            # Combine background with text
+            composite_clip = CompositeVideoClip([background, text_clip], size=(640, 480))
+            clips.append(composite_clip)
+            print(f"Generated clip {i} of {len(sections)}")
+        except Exception as e:
+            print(f"Error generating clip for section {section}: {e}")
+    return clips
+
+def create_video(clips, audio_file, output_video="output_video.mp4"):
+    try:
+        if not audio_file:
+            raise ValueError("No audio file provided")
+
+        # Concatenate all text clips
+        video_clip = concatenate_videoclips(clips)
+
+        # Load the generated audio
+        audio = AudioFileClip(audio_file)
+
+        # Adjust audio and video duration for synchronization
+        if audio.duration > video_clip.duration:
+            audio = audio.subclip(0, video_clip.duration)  # Trim audio to match video duration
+        elif audio.duration < video_clip.duration:
+            video_clip = video_clip.loop(duration=audio.duration)  # Loop video to match audio duration
+
+        # Composite the audio with the video
+        final_clip = video_clip.set_audio(audio)
+
+        # Write the video file
+        final_clip.write_videofile(output_video, fps=24, codec="libx264", audio_codec="aac")
+        print(f"Video created: {output_video}")
+        return output_video
+    except Exception as e:
+        print(f"Error creating video: {e}")
+        return None
+
+# Main execution
+def main():
+    sections = read_text_file("text.txt")
+    if not sections:
+        return
+
+    # Combine all sections for audio generation
+    full_text = " ".join(sections)
+    audio_file = generate_audio(full_text)
+
+    if audio_file:
+        video_clips = generate_video_clips(sections)
+        if video_clips:
+            create_video(video_clips, audio_file)
+        else:
+            print("No video clips were generated to combine.")
+        
+        # Clean up temporary audio file
+        os.remove(audio_file)
+    else:
+        print("No audio file was generated.")
 
 if __name__ == "__main__":
-    # create_demo_video("basic_output.mp4")
-    create_advanced_video("advanced_output.mp4")
+    main()
