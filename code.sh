@@ -2,6 +2,8 @@
 
 # Array of repository URLs
 repositories=(
+  "https://github.com/jtroo/kanata.git"
+  "https://github.com/plandex-ai/plandex.git"
   "https://github.com/lapce/lapce.git"
 #  "https://github.com/bitcoin/bitcoin.git"
 #  "https://github.com/prysmaticlabs/prysm.git"
