@@ -2,6 +2,7 @@
 
 # Array of repository URLs
 repositories=(
+  "https://github.com/lapce/lapce.git"
 #  "https://github.com/bitcoin/bitcoin.git"
 #  "https://github.com/prysmaticlabs/prysm.git"
 #  "https://github.com/ethereum/solidity.git"
@@ -12,9 +13,9 @@ repositories=(
 #  "https://github.com/sigp/lighthouse.git"
 #  "https://github.com/Consensys/teku.git"
 #  "https://github.com/hyperledger/besu.git"
-#   "https://github.com/ethereum-optimism/optimism.git"
-   "https://github.com/pancakeswap/pancake-frontend.git"
-   "https://github.com/Uniswap/interface.git"
+#  "https://github.com/ethereum-optimism/optimism.git"
+#  "https://github.com/pancakeswap/pancake-frontend.git"
+#  "https://github.com/Uniswap/interface.git"
 )
 
 # Clone or update repositories
