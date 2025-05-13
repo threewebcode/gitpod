@@ -16,7 +16,7 @@ repositories=(
 #  "https://github.com/Consensys/teku.git"
 #  "https://github.com/hyperledger/besu.git"
 #  "https://github.com/ethereum-optimism/optimism.git"
-#  "https://github.com/pancakeswap/pancake-frontend.git"
+  "https://github.com/pancakeswap/pancake-frontend.git"
   "https://github.com/Uniswap/interface.git"
 )
 
