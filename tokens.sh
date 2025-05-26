@@ -1,3 +1,6 @@
+git clone --depth 1 https://github.com/aerodrome-finance/docs.git
+git clone --depth 1 https://github.com/aerodrome-finance/contracts.git
+git clone --depth 1 https://github.com/velodrome-finance/docs.git
 git clone --depth 1 https://github.com/ref-finance/guide.git
 git clone --depth 1 https://github.com/ref-finance/ref-contracts.git
 git clone --depth 1 https://github.com/traderjoe-xyz/joe-docs.git
