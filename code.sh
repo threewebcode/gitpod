@@ -18,9 +18,12 @@ repositories=(
 #  "https://github.com/ethereum-optimism/optimism.git"
 #  "https://github.com/pancakeswap/pancake-frontend.git"
 #  "https://github.com/Uniswap/interface.git"
-  "https://github.com/gmx-io/gmx-contracts.git"
-  "https://github.com/dydxprotocol/v4-documentation.git"
-  "https://github.com/dydxprotocol/v4-chain.git"
+#  "https://github.com/gmx-io/gmx-contracts.git"
+#  "https://github.com/dydxprotocol/v4-documentation.git"
+#  "https://github.com/dydxprotocol/v4-chain.git"
+  "https://github.com/drift-labs/gateway.git"
+  "https://github.com/drift-labs/dlob-server.git"
+  "https://github.com/drift-labs/protocol-v2.git"
 )
 
 # Clone or update repositories
