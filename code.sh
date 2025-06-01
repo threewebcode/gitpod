@@ -21,9 +21,11 @@ repositories=(
 #  "https://github.com/gmx-io/gmx-contracts.git"
 #  "https://github.com/dydxprotocol/v4-documentation.git"
 #  "https://github.com/dydxprotocol/v4-chain.git"
-  "https://github.com/drift-labs/gateway.git"
-  "https://github.com/drift-labs/dlob-server.git"
-  "https://github.com/drift-labs/protocol-v2.git"
+  "https://github.com/dydxprotocol/v4-web.git"
+  "https://github.com/dydxprotocol/v4-infrastructure.git"
+#  "https://github.com/drift-labs/gateway.git"
+#  "https://github.com/drift-labs/dlob-server.git"
+#  "https://github.com/drift-labs/protocol-v2.git"
 )
 
 # Clone or update repositories
