@@ -2,6 +2,8 @@
 
 # Array of repository URLs
 repositories=(
+  "https://github.com/saros-xyz/saros-swap.git"
+  "https://github.com/solana-labs/perpetuals.git"
 #  "https://github.com/jtroo/kanata.git"
 #  "https://github.com/plandex-ai/plandex.git"
 #  "https://github.com/lapce/lapce.git"
@@ -26,9 +28,9 @@ repositories=(
 #  "https://github.com/drift-labs/gateway.git"
 #  "https://github.com/drift-labs/dlob-server.git"
 #  "https://github.com/drift-labs/protocol-v2.git"
-  "https://github.com/perpetual-protocol/perp-docs.git"
-  "https://github.com/perpetual-protocol/perp-oracle-contract.git"
-  "https://github.com/perpetual-protocol/perp-curie-contract.git"
+#  "https://github.com/perpetual-protocol/perp-docs.git"
+#  "https://github.com/perpetual-protocol/perp-oracle-contract.git"
+#  "https://github.com/perpetual-protocol/perp-curie-contract.git"
 )
 
 # Clone or update repositories
