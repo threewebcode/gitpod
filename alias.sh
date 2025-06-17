@@ -1,4 +1,5 @@
 alias code='vim -c "set rnu"'
 export VISUAL='vim -c "set rnu"'
 export EDITOR='vim -c "set rnu"'
+alias rw='vim -n -c "set rnu" $(find -type f)'
 alias push='git add --all && git commit -m "chore: make updates" && git push'
