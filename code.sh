@@ -2,8 +2,9 @@
 
 # Array of repository URLs
 repositories=(
-  "https://github.com/saros-xyz/saros-swap.git"
-  "https://github.com/solana-labs/perpetuals.git"
+  "https://github.com/mrgnlabs/marginfi-v2.git"
+#  "https://github.com/saros-xyz/saros-swap.git"
+#  "https://github.com/solana-labs/perpetuals.git"
 #  "https://github.com/jtroo/kanata.git"
 #  "https://github.com/plandex-ai/plandex.git"
 #  "https://github.com/lapce/lapce.git"
