@@ -2,11 +2,13 @@
 
 # Array of repository URLs
 repositories=(
-  "https://github.com/blockworks-foundation/mango-v4.git"
-  "https://github.com/drift-labs/protocol-v2.git"
-  "https://github.com/Ellipsis-Labs/phoenix-v1.git"
-  "https://github.com/Bonfida/dex-v4.git"
-  "https://github.com/mrgnlabs/marginfi-v2.git"
+  "https://github.com/anza-xyz/solana-sdk.git"
+  "https://github.com/anza-xyz/agave.git"
+#  "https://github.com/blockworks-foundation/mango-v4.git"
+#  "https://github.com/drift-labs/protocol-v2.git"
+#  "https://github.com/Ellipsis-Labs/phoenix-v1.git"
+#  "https://github.com/Bonfida/dex-v4.git"
+#  "https://github.com/mrgnlabs/marginfi-v2.git"
 #  "https://github.com/saros-xyz/saros-swap.git"
 #  "https://github.com/solana-labs/perpetuals.git"
 #  "https://github.com/jtroo/kanata.git"
