@@ -2,6 +2,7 @@
 
 # Array of repository URLs
 repositories=(
+  "https://github.com/blockworks-foundation/mango-v4-service.git"
   "https://github.com/blockworks-foundation/mango-v4-ui.git"
 #  "https://github.com/anza-xyz/solana-sdk.git"
 #  "https://github.com/anza-xyz/agave.git"
