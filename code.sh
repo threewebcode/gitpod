@@ -2,7 +2,8 @@
 
 # Array of repository URLs
 repositories=(
-  "https://github.com/google-gemini/gemini-cli.git"
+  "https://github.com/elys-network/elys.git"
+#  "https://github.com/google-gemini/gemini-cli.git"
 #  "https://github.com/blockworks-foundation/mango-v4-service.git"
 #  "https://github.com/blockworks-foundation/mango-v4-ui.git"
 #  "https://github.com/anza-xyz/solana-sdk.git"
